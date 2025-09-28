@@ -56,8 +56,16 @@ REST_FRAMEWORK = {
 
     # Authentication settings
     'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.simplejwt.authentication.JWTAuthentication',
         'rest_framework.authenticaton.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
+    ],
+
+    # Backend Settings
+    'DEFAULT_FILTER_BACKEND': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter',
+        'rest_framework.filters.OrderingFilter',
     ],
 
     # Render settings 
