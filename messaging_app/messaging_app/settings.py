@@ -44,16 +44,15 @@ INSTALLED_APPS = [
 
 # Django rest framework settings
 REST_FRAMEWORK = {
+    # Permission settings
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
-        'rest_framework.permissions.isAuthenticated'
+        'rest_framework.permissions.isAuthenticated',
     ],
 
     # Pagniation settings
-    'DEFAULT_PAGINATION_CLASS': [
+    'DEFAULT_PAGINATION_CLASS': 
         'rest_framework.pagination.PageNumberPagination',
         'PAGE_SIZE': 10,
-    ],
 
     # Authentication settings
     'DEFAULT_AUTHENTICATION_CLASSES': [
