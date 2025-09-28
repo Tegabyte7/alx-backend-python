@@ -3,7 +3,6 @@ import uuid
 from django.contrib.auth.models import AbstractUser
 
 
-
 # Create your models here.
 class Users(AbstractUser):
     user_id = models.UUIDField(primary_key=True, 
@@ -27,7 +26,6 @@ class Users(AbstractUser):
     def __str__(self):
         return f"{self.email} ({self.role})"
     
-
 
 class Message(models.Model):
     message_id = models.UUIDField(primary_key=True, 
