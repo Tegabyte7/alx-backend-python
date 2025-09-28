@@ -42,6 +42,32 @@ INSTALLED_APPS = [
     'chats',
 ]
 
+# Django rest framework settings
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+        'rest_framework.permissions.isAuthenticated'
+    ],
+
+    # Pagniation settings
+    'DEFAULT_PAGINATION_CLASS': [
+        'rest_framework.pagination.PageNumberPagination',
+        'PAGE_SIZE': 10,
+    ],
+
+    # Authentication settings
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authenticaton.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ],
+
+    # Render settings 
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ],
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -124,24 +150,3 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ],
-
-    # Pagniation settings
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10,
-
-    # Authentication settings
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authenticaton.SessionAuthentication',
-        'rest_framework.authentication.BasicAuthentication',
-    ],
-
-    # Render settings 
-    'DEFAULT_RENDERER_CLASSES': [
-        'rest_framework.renderers.JSONRenderer',
-        'rest_framework.renderers.BrowsableAPIRenderer',
-    ],
-}
